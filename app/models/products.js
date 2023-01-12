@@ -6,7 +6,7 @@ module.exports = mongoose => {
       discountPercentage: Number,
       stock: Number,
       brand: String,
-      status: Boolean
+      status: Number
     },
     { timestamps: true }
   );
