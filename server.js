@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const productRoute = require("./app/routes/products");
+const brandRoute = require("./app/routes/brand");
 
 const app = express();
 
@@ -27,6 +28,7 @@ db.mongoose
   });
 
 productRoute(app);
+brandRoute(app)
 // simple route
 app.use("/", (req, res) => {
   res.json({ message: "Welcome to Lotusa Training ReactJs " });

@@ -7,5 +7,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.products = require("./products.js")(mongoose);
+db.brand = require("./brand.js")(mongoose);
 
 module.exports = db;

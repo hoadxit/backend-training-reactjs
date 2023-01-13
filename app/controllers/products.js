@@ -3,7 +3,11 @@ const Product = db.products;
 
 // Create and Save a new Product
 exports.create = (req, res) => {
-  // Validate request
+  const random = Math.random()
+  if (random < 0.2) {
+    res.status(500).send({ message: "Some error occurred while creating the Product!" });
+    return;
+  }
   if (!req.body.title) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
@@ -76,6 +80,14 @@ exports.update = (req, res) => {
   }
 
   const id = req.params.id;
+  const random = Math.random()
+
+  if (random < 0.2) {
+    res.status(500).send({
+      message: "Could not delete Product with id=" + id
+    });
+    return;
+  }
 
   Product.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
