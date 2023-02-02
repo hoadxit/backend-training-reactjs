@@ -1,8 +1,9 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      title: String,
-      description: String
+      account_id: String,
+      account_name: String,
+      cash_balance: Number
     },
     { timestamps: true }
   );
@@ -13,6 +14,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Brand = mongoose.model("brand", schema);
-  return Brand;
+  const Portfolio = mongoose.model("portfolio", schema);
+  return Portfolio;
 };

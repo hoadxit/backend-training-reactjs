@@ -32,8 +32,11 @@ exports.create = (req, res) => {
 
 // Retrieve all Products from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+  const query = req.query;
+  var condition = {};
+  Object.keys(query).forEach(param => {
+    condition[param] = { $regex: new RegExp(query[param]), $options: "i" }
+  })
 
   Product.find(condition)
     .then(data => {

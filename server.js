@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const productRoute = require("./app/routes/products");
-const brandRoute = require("./app/routes/brand");
+const portfolioRoute = require("./app/routes/portfolio");
+const symbolRoute = require("./app/routes/symbol");
 
 const app = express();
 
@@ -28,16 +29,17 @@ db.mongoose
   });
 
 productRoute(app);
-brandRoute(app)
+portfolioRoute(app)
+symbolRoute(app)
 // simple route
 app.use("/", (req, res) => {
   res.json({ message: "Welcome to Lotusa Training ReactJs " });
 });
 
-require("./app/routes/products")(app);
+// require("./app/routes/products")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8084;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
