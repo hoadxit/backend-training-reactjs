@@ -33,7 +33,29 @@ portfolioRoute(app)
 symbolRoute(app)
 // simple route
 app.use("/", (req, res) => {
-  res.json({ message: "Welcome to Lotusa Training ReactJs " });
+  let mes = `
+  <p>// Create a new Product</p>
+  <code>router.post('/', products.create);</code>
+
+  <p>// Retrieve all products</p>
+  <code>router.get('/', products.findAll);</code>
+
+  <p>// Retrieve all published products</p>
+  <code>router.get('/published', products.findAllPublished);</code>
+
+  <p>// Retrieve a single Product with id</p>
+  <code>router.get('/:id', products.findOne);</code>
+
+  <p>// Update a Product with id</p>
+  <code>router.put('/:id', products.update);</code>
+
+  <p>// Delete a Product with id</p>
+  <code>router.delete('/:id', products.delete);</code>
+
+  <p>// Delete all Product</p>
+  <code>router.delete('/', products.deleteAll);</code> 
+  `
+  res.send(`<div>${mes}</div>`)
 });
 
 // require("./app/routes/products")(app);

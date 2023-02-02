@@ -79,6 +79,7 @@ exports.findAll = (req, res) => {
 
   Symbol.find(condition)
     .then(data => {
+      if(data.length > 50) data.length = 50
       res.send(data);
     })
     .catch(err => {
